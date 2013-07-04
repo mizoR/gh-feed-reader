@@ -13,8 +13,21 @@
 
 ActiveRecord::Schema.define(version: 20130704095025) do
 
+  create_table "authors", force: true do |t|
+    t.string   "uid",                     null: false
+    t.string   "email",      default: ""
+    t.string   "url",        default: ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "authors", ["created_at"], name: "index_authors_on_created_at"
+  add_index "authors", ["email"], name: "index_authors_on_email"
+  add_index "authors", ["uid"], name: "index_authors_on_uid", unique: true
+  add_index "authors", ["updated_at"], name: "index_authors_on_updated_at"
+
   create_table "entries", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "author_id"
     t.integer  "rss_id"
     t.string   "uid",                       null: false
     t.string   "url",          default: ""
@@ -25,11 +38,11 @@ ActiveRecord::Schema.define(version: 20130704095025) do
     t.datetime "updated_at"
   end
 
+  add_index "entries", ["author_id"], name: "index_entries_on_author_id"
   add_index "entries", ["created_at"], name: "index_entries_on_created_at"
   add_index "entries", ["published_at"], name: "index_entries_on_published_at"
   add_index "entries", ["rss_id"], name: "index_entries_on_rss_id"
   add_index "entries", ["updated_at"], name: "index_entries_on_updated_at"
-  add_index "entries", ["user_id"], name: "index_entries_on_user_id"
 
   create_table "rsses", force: true do |t|
     t.string   "title",      null: false
@@ -40,18 +53,5 @@ ActiveRecord::Schema.define(version: 20130704095025) do
 
   add_index "rsses", ["created_at"], name: "index_rsses_on_created_at"
   add_index "rsses", ["updated_at"], name: "index_rsses_on_updated_at"
-
-  create_table "users", force: true do |t|
-    t.string   "uid",                     null: false
-    t.string   "email",      default: ""
-    t.string   "url",        default: ""
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "users", ["created_at"], name: "index_users_on_created_at"
-  add_index "users", ["email"], name: "index_users_on_email"
-  add_index "users", ["uid"], name: "index_users_on_uid", unique: true
-  add_index "users", ["updated_at"], name: "index_users_on_updated_at"
 
 end

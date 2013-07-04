@@ -3,8 +3,8 @@
 
 <dl>
   <% @entries.each do |entry| %>
-    <dt><%= entry.title %><dt>
-    <dd><%= entry.author.uid %><dd>
-    <dd><%= simple_format entry.content %><dd>
+    <dt><%= link_to entry.title, entry.url, target: :_blank %></dt>
+    <dd><%= entry.author.uid %></dd>
+    <dd><%== entry.content %></dd>
   <% end %>
 </dl>

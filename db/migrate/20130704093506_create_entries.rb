@@ -1,7 +1,7 @@
 class CreateEntries < ActiveRecord::Migration
   def change
     create_table :entries do |t|
-      t.integer :user_id, null: true
+      t.integer :author_id, null: true
       t.integer :rss_id, null: true
       t.string :uid, null: false
       t.string :url, default: ''
@@ -12,7 +12,7 @@ class CreateEntries < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :entries, :user_id
+    add_index :entries, :author_id
     add_index :entries, :rss_id
     add_index :entries, :published_at
     add_index :entries, :created_at

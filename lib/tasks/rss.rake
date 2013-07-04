@@ -4,7 +4,9 @@ namespace :rss do
     Rss.find_each do |rss|
       feed = FeedNormalizer::FeedNormalizer.parse open(rss.url)
       feed.entries.each do |entry|
-        rss.entries.create entry: entry
+        if !Entry.exists? uid: entry.id
+          rss.entries.create entry: entry
+        end
       end
     end
   end
