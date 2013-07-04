@@ -1,0 +1,10 @@
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+
+<dl>
+  <% @entries.each do |entry| %>
+    <dt><%= entry.title %><dt>
+    <dd><%= entry.author.uid %><dd>
+    <dd><%= simple_format entry.content %><dd>
+  <% end %>
+</dl>
