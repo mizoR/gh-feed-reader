@@ -14,7 +14,7 @@
   <tbody>
     <% @rsses.each do |rss| %>
       <tr>
-        <td><%= rss.title %></td>
+        <td><%= rss.uid %></td>
         <td><%= rss.url %></td>
         <td><%= link_to 'Show', rss %></td>
         <td><%= link_to 'Edit', edit_rss_path(rss) %></td>

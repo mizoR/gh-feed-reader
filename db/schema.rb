@@ -45,13 +45,14 @@ ActiveRecord::Schema.define(version: 20130704095025) do
   add_index "entries", ["updated_at"], name: "index_entries_on_updated_at"
 
   create_table "rsses", force: true do |t|
-    t.string   "title",      null: false
+    t.string   "uid",        null: false
     t.string   "url",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "rsses", ["created_at"], name: "index_rsses_on_created_at"
+  add_index "rsses", ["uid"], name: "index_rsses_on_uid"
   add_index "rsses", ["updated_at"], name: "index_rsses_on_updated_at"
 
 end

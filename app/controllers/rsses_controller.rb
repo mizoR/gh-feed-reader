@@ -69,6 +69,6 @@ class RssesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rss_params
-      params.require(:rss).permit(:title, :url)
+      params.require(:rss).permit(:uid, :url)
     end
 end

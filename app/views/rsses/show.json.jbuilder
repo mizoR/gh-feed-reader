@@ -1,1 +1,1 @@
-json.extract! @rss, :title, :url, :created_at, :updated_at
+json.extract! @rss, :uid, :url, :created_at, :updated_at
