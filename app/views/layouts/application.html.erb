@@ -29,10 +29,16 @@
       <div class="row">
         <div class="span3">
           <div class="well sidebar-nav">
-            <h4>Activity</h4>
+            <h4>Activities</h4>
             <ul class="nav nav-list">
               <% Rss.find_each do |rss| %>
                 <li><%= link_to rss.uid, activity_path(uid: rss.uid) %></li>
+              <% end %>
+            </ul>
+            <h4>Authors</h4>
+            <ul class="nav nav-list">
+              <% Author.find_each do |author| %>
+                <li><%= link_to author.uid, authors_activity_path(uid: author.uid) %></li>
               <% end %>
             </ul>
             <h4>Settings</h4>

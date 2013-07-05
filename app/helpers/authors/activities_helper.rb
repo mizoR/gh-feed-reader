@@ -1,0 +1,2 @@
+module Authors::ActivitiesHelper
+end

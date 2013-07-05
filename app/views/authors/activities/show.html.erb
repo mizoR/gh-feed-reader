@@ -1,0 +1,10 @@
+<h1>Authors::Activities#index</h1>
+<p>Find me in app/views/authors/activities/index.html.erb</p>
+
+<dl>
+  <% @entries.each do |entry| %>
+    <dt><%= link_to entry.title, entry.url, target: :_blank %></dt>
+    <dd><%= entry.author.uid %></dd>
+    <dd><%== entry.content %></dd>
+  <% end %>
+</dl>
